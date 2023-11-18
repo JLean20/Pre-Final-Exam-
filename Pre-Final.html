@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Analyzer</title>
+</head>
+<body>
+
+  <label for="Input">Enter a number: </label>
+  <input type="text" id="Input" />
+  <button onclick="IndexNumber()">Index</button>
+
+  <p id="result"></p>
+
+  <script>
+    
+    function IndexNumber() {
+      var Number = parseInt(document.getElementById("Input").value);
+      var isOdd = Number % 2 !== 0;
+      var isEven = !isOdd;
+
+
+      var oddNumbers = [];
+      var evenNumbers = [];
+
+      for (var i = 1; i <= Number; i++) {
+        if (i % 2 !== 0) {
+          oddNumbers.push(i);
+        } else {
+          evenNumbers.push(i);
+        }
+      }
+
+      var resultMessage = `Number: ${Number}<br>
+                           Odd Numbers: ${oddNumbers.length > 0 ? oddNumbers.join(', ') : 'No odd numbers'}<br>
+                           Even Numbers: ${evenNumbers.length > 0 ? evenNumbers.join(', ') : 'No even numbers'}<br>`
+
+      document.getElementById("result").innerHTML = resultMessage;
+    }
+
+    function isPrimeNumber(num) {
+      if (num <= 1) return false;
+      for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+          return;
+        }
+      }
+      return;
+    }
+  </script>
+
+</body>
+</html>
